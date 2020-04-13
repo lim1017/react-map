@@ -6,27 +6,29 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const mapKey = process.env.REACT_APP_MAP;
 
 
-class SimpleMap extends Component {
+const apiIsLoaded = (map, maps) => {
+  if (map) {
+    console.log('asdfsafd')
+
+  }
+};
 
 
 
+function SimpleMap (props) {
 
-  static defaultProps = {
-    center: {
-      lat: 43.6532,
-      lng: -79.3832
-    },
-    zoom: 11
-  };
  
-  render() {
+  
     return (
       // Important! Always set the container height explicitly
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: mapKey }}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
+          defaultCenter={props.center || {lat: 43.6532, lng: -79.3832}}
+          defaultZoom={props.zoom || 11}
+          yesIWantToUseGoogleMapApiInternals
+         onGoogleApiLoaded={({ map, maps }) => apiIsLoaded(map, maps)}
+          
         >
           <AnyReactComponent
             lat={43.65}
@@ -43,7 +45,7 @@ class SimpleMap extends Component {
         </GoogleMapReact>
       </div>
     );
-  }
+  
 }
  
 export default SimpleMap;
