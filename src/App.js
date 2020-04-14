@@ -10,11 +10,11 @@ const mapKey = process.env.REACT_APP_MAP;
 function App(props) {
   
   const places = [
-    {latitude: 25.8103146,longitude: -80.1751609},
+    {latitude: 43.6503146,longitude: -79.3851609},
     {latitude: 27.9947147,longitude: -82.5943645},
-    {latitude: 28.4813018,longitude: -81.4387899}
+    {latitude: 31.2304,longitude: -81.4387899}
   ]
-  
+
   const {
     loadingElement,
     containerElement,
@@ -36,6 +36,7 @@ function App(props) {
       mapElement={mapElement || <div style={{height: `100%`}}/>}
       defaultCenter={defaultCenter || {lat: 25.798939, lng: -80.291409}}
       defaultZoom={defaultZoom || 11}
+      travelMode='Flying'
     />
 
   );

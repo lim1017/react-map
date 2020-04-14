@@ -35,13 +35,13 @@ class MapDirectionsRenderer extends React.Component {
         waypoints: waypoints
       },
       (result, status) => {
-        if (status === google.maps.DirectionsStatus.OK) {
+        // if (status === google.maps.DirectionsStatus.OK) {
           this.setState({
             directions: result
           });
-        } else {
-          this.setState({ error: result });
-        }
+        // } else {
+        //   this.setState({ error: result });
+        // }
       }
     );
   }
